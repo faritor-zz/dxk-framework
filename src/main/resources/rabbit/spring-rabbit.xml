@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/rabbit
+                           http://www.springframework.org/schema/rabbit/spring-rabbit-1.4.xsd"
+       default-lazy-init="true">
+
+    <!-- 发送相关 -->
+    <rabbit:template id="amqpTemplate" connection-factory="connectionFactory"
+                     exchange="${rabbit.demo.exchange}" routing-key="${rabbit.demo.routingKey}"/>
+
+    <!-- 监听相关 -->
+    <rabbit:listener-container connection-factory="connectionFactory">
+        <rabbit:listener queue-names="${rabbit.demo.queue}" ref="consumer" />
+    </rabbit:listener-container>
+
+    <rabbit:connection-factory id="connectionFactory"
+                               virtual-host="${rabbit.vhost}"
+                               username="${rabbit.username}"
+                               password="${rabbit.password}"/>
+
+    <rabbit:admin connection-factory="connectionFactory" />
+
+    <rabbit:queue name="${rabbit.demo.queue}" />
+
+    <rabbit:topic-exchange name="${rabbit.demo.exchange}">
+        <rabbit:bindings>
+            <rabbit:binding queue="${rabbit.demo.queue}" pattern="${rabbit.demo.pattern}" />
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+
+    <bean id="consumer" class="com.demo.web.service.Consumer" />
+
+</beans>
