@@ -7,6 +7,7 @@ public interface Urls {
 
     interface Sample {
         String ROOT = "/sample";
+        String DEMO = "/demo/{msg}";
         String SEND_MQ = "/send";
     }
 

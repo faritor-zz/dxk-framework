@@ -1,0 +1,9 @@
+#rabbitMQ
+rabbit:
+  username: dxk
+  password: 19911212
+  vhost: test
+  demo.exchange: demo.exchange
+  demo.queue: demo.queue
+  demo.routingKey: rabbitDemo
+  demo.pattern: rabbitDemo
