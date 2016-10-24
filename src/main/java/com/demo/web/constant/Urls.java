@@ -11,4 +11,9 @@ public interface Urls {
         String SEND_MQ = "/send";
     }
 
+    interface User {
+        String ROOT = "/user";
+        String GET_USER_BY_ID = "/{id}";
+    }
+
 }

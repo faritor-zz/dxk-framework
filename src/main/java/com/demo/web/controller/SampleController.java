@@ -39,11 +39,13 @@ public class SampleController {
     @GetMapping(value = Urls.Sample.SEND_MQ)
     @ResponseBody
     public String sender() {
+        logger.debug("-------------开始发送mq");
         try {
             producer.sender();
+            logger.debug("-------------发送mq成功");
             return "ok";
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.debug("-------------发送mq失败，错误原因 e：" + e);
         }
         return null;
     }

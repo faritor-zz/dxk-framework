@@ -17,7 +17,7 @@ public class Consumer implements ChannelAwareMessageListener {
         if (message != null || message.getBody().length != 0) {
             try {
                 String data = new String(message.getBody(), "utf-8");
-                System.out.println("---------------------------接收消息：" + data);
+                System.out.println("-------------接收消息为 data：" + data);
             } catch (Exception e) {
                 e.printStackTrace();
             }

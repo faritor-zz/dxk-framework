@@ -16,7 +16,7 @@ public class Producer {
     public void sender() throws Exception{
         for (int i = 1; i < 10; i++) {
             amqpTemplate.convertAndSend("Hello, world!");
-            System.out.println("---------------------------发送第"+i+"条消息成功");
+            System.out.println("-------------发送第"+i+"条消息成功");
             Thread.sleep(2000);
         }
 

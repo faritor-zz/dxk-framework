@@ -7,3 +7,21 @@ rabbit:
   demo.queue: demo.queue
   demo.routingKey: rabbitDemo
   demo.pattern: rabbitDemo
+
+#druid
+druid:
+     url: ${druid.url}
+     username: ${druid.username}
+     password: ${druid.password}
+     filters: ${druid.filters}
+     initialSize: '10'
+     minIdle: '20'
+     maxActive: '50'
+     testWhileIdle: 'true'
+     connectionProperties: 'druid.stat.slowSqlMillis=1000'
+
+#mybatis
+mybatis:
+    basePackage: com.demo.web.mapper
+    mapperLocations: classpath*:/mapper/**/*.xml
+    typeAliasesPackage: com.demo.web.model
