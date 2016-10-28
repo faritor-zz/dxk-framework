@@ -11,5 +11,5 @@
 		FROM users t
 		WHERE t.id = #{id}
 	</select>
-
+	
 </mapper>

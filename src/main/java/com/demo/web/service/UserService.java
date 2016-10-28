@@ -18,4 +18,5 @@ public class UserService {
     public User getUserById(Integer id) {
         return userMapper.getUserById(id);
     }
+
 }

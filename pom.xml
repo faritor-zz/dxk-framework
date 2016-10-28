@@ -8,19 +8,11 @@
     <artifactId>activeMQ-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!-- spring boot 父节点依赖,
-         引入这个之后相关的引入就不需要添加version配置，
-         spring boot 会自动选择最合适的版本进行添加。 -->
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.1.RELEASE</version>
+        <groupId>com.dxk</groupId>
+        <artifactId>dxk-springboot-web-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
     </parent>
-
-    <!-- 设置参数 -->
-    <properties>
-        <filters.base.path>src/filters</filters.base.path>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -31,6 +23,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
         <!-- rabbitMQ -->
@@ -64,7 +61,14 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.0.0</version>
+            <version>1.1.1</version>
+        </dependency>
+
+        <!-- mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.39</version>
         </dependency>
 
         <!-- druid -->
@@ -73,50 +77,6 @@
             <artifactId>druid</artifactId>
             <version>1.0.25</version>
         </dependency>
-
     </dependencies>
-
-    <!-- 定义不同环境的配置 -->
-    <profiles>
-        <profile>
-            <!-- 开发环境 profile -->
-            <id>dev</id>
-            <properties>
-                <profile-id>dev</profile-id>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <filters>
-                    <filter>${filters.base.path}/${profile-id}-filter.properties</filter>
-                </filters>
-            </build>
-        </profile>
-        <profile>
-            <!-- 测试环境 profile -->
-            <id>test</id>
-            <properties>
-                <profile-id>test</profile-id>
-            </properties>
-            <build>
-                <filters>
-                    <filter>${filters.base.path}/${profile-id}-filter.properties</filter>
-                </filters>
-            </build>
-        </profile>
-        <profile>
-            <!-- 生产环境 profile -->
-            <id>prd</id>
-            <properties>
-                <profile-id>prd</profile-id>
-            </properties>
-            <build>
-                <filters>
-                    <filter>${filters.base.path}/${profile-id}-filter.properties</filter>
-                </filters>
-            </build>
-        </profile>
-    </profiles>
 
 </project>

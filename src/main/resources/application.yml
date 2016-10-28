@@ -1,27 +1,35 @@
-#rabbitMQ
-rabbit:
-  username: dxk
-  password: 19911212
-  vhost: test
-  demo.exchange: demo.exchange
-  demo.queue: demo.queue
-  demo.routingKey: rabbitDemo
-  demo.pattern: rabbitDemo
+server:
+    port: 8080
+    context-path: /
+    sessionTimeout: 30
 
-#druid
+spring:
+    profiles:
+        active: @{profile-id}
+
+rabbit:
+  username: @{rabbit.username}
+  password: @{rabbit.password}
+  vhost: @{rabbit.vhost}
+  demo.exchange: @{rabbit.demo.exchange}
+  demo.queue: @{rabbit.demo.queue}
+  demo.routingKey: @{rabbit.demo.routingKey}
+  demo.pattern: @{rabbit.demo.pattern}
+
 druid:
-     url: ${druid.url}
-     username: ${druid.username}
-     password: ${druid.password}
-     filters: ${druid.filters}
+     url: @{druid.url}
+#     driver-class-name: com.mysql.jdbc.Driver
+     username: @{druid.username}
+     password: @{druid.password}
+     filters: @{druid.filters}
      initialSize: '10'
      minIdle: '20'
      maxActive: '50'
      testWhileIdle: 'true'
      connectionProperties: 'druid.stat.slowSqlMillis=1000'
 
-#mybatis
 mybatis:
     basePackage: com.demo.web.mapper
     mapperLocations: classpath*:/mapper/**/*.xml
     typeAliasesPackage: com.demo.web.model
+

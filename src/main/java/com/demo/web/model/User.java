@@ -1,7 +1,5 @@
 package com.demo.web.model;
 
-import org.joda.time.DateTime;
-
 /**
  * Created by dxk on 2016/10/24.
  */
@@ -9,7 +7,7 @@ public class User {
 
     private Integer id;
     private String name;
-    private DateTime createAt;
+    private String createAt;
 
     public Integer getId() {
         return id;
@@ -27,11 +25,11 @@ public class User {
         this.name = name;
     }
 
-    public DateTime getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(DateTime createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 }
