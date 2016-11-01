@@ -18,7 +18,6 @@ rabbit:
 
 druid:
      url: @{druid.url}
-#     driver-class-name: com.mysql.jdbc.Driver
      username: @{druid.username}
      password: @{druid.password}
      filters: @{druid.filters}
