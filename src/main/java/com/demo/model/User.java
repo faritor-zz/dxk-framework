@@ -1,7 +1,7 @@
-package com.demo.web.model;
+package com.demo.model;
 
 /**
- * Created by dxk on 2016/10/24.
+ * Created by dxk on 2016/11/3.
  */
 public class User {
 

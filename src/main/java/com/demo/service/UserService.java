@@ -1,7 +1,7 @@
-package com.demo.web.service;
+package com.demo.service;
 
-import com.demo.web.mapper.UserMapper;
-import com.demo.web.model.User;
+import com.demo.mapper.UserMapper;
+import com.demo.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

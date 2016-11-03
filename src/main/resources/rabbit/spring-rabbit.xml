@@ -32,6 +32,6 @@
         </rabbit:bindings>
     </rabbit:topic-exchange>
 
-    <bean id="consumer" class="com.demo.web.service.Consumer" />
+    <bean id="consumer" class="com.demo.service.Consumer" />
 
 </beans>

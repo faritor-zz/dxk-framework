@@ -1,12 +1,12 @@
-package com.demo.web.mapper;
+package com.demo.mapper;
 
-import com.demo.web.model.User;
+import com.demo.model.User;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * Created by dxk on 2016/10/24.
+ * Created by dxk on 2016/11/3.
  */
 @Mapper
 public interface UserMapper {

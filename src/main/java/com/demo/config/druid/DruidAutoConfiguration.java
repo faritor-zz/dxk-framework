@@ -1,4 +1,4 @@
-package com.demo.web.config.druid;
+package com.demo.config.druid;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;

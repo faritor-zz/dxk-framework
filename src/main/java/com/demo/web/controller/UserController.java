@@ -1,8 +1,8 @@
 package com.demo.web.controller;
 
 import com.demo.web.constant.Urls;
-import com.demo.web.model.User;
-import com.demo.web.service.UserService;
+import com.demo.model.User;
+import com.demo.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

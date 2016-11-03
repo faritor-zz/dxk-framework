@@ -1,6 +1,6 @@
 server:
     port: 8080
-    context-path: /
+    context-path: /dxk-framework/api
     sessionTimeout: 30
 
 spring:
@@ -28,7 +28,7 @@ druid:
      connectionProperties: 'druid.stat.slowSqlMillis=1000'
 
 mybatis:
-    basePackage: com.demo.web.mapper
+    basePackage: com.demo.mapper
     mapperLocations: classpath*:/mapper/**/*.xml
-    typeAliasesPackage: com.demo.web.model
+    typeAliasesPackage: com.demo.model
 

@@ -1,6 +1,6 @@
-package com.demo.web.schedule;
+package com.demo.schedule;
 
-import com.demo.web.service.UserService;
+import com.demo.service.UserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

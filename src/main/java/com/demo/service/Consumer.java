@@ -1,4 +1,4 @@
-package com.demo.web.service;
+package com.demo.service;
 
 import com.rabbitmq.client.Channel;
 

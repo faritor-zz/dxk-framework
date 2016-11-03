@@ -1,4 +1,4 @@
-package com.demo.web.config.druid;
+package com.demo.config.druid;
 
 /**
  * Created by dxk on 2016/10/26.

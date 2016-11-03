@@ -1,7 +1,7 @@
 package com.demo.web.controller;
 
 import com.demo.web.constant.Urls;
-import com.demo.web.service.Producer;
+import com.demo.service.Producer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
