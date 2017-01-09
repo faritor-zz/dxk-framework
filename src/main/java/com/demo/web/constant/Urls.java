@@ -13,7 +13,11 @@ public interface Urls {
 
     interface User {
         String ROOT = "/user";
-        String GET_USER_BY_ID = "/{id}";
+        String GET_USER_LIST = "";
+        String GET_USER = "/{id}";
+        String SAVE_USER = "/save";
+        String UPDATE_USER = "/update";
+        String DELETE_USER = "/{id}/delete";
     }
 
 }

@@ -4,6 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <import resource="classpath:rabbit/spring-rabbit.xml" />
-
+    <!--<import resource="classpath:rabbit/spring-rabbit.xml" />-->
+    <bean class="com.github.pagehelper.PageHelper"/>
 </beans>

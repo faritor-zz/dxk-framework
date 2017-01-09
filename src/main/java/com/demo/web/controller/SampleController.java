@@ -29,14 +29,14 @@ public class SampleController {
     private Producer producer;
 
     @ApiOperation(value = "demo接口 xiaokang", notes = "测试小示例")
-    @GetMapping(value = Urls.Sample.DEMO)
+    @GetMapping(Urls.Sample.DEMO)
     @ResponseBody
     public String demo(@PathVariable String msg) {
         return "hello " + msg;
     }
 
     @ApiOperation(value = "发送mq接口 xiaokang", notes = "发送mq")
-    @GetMapping(value = Urls.Sample.SEND_MQ)
+    @GetMapping(Urls.Sample.SEND_MQ)
     @ResponseBody
     public String sender() {
         logger.debug("-------------开始发送mq");

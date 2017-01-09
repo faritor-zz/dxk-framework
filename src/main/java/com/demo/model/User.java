@@ -1,13 +1,17 @@
 package com.demo.model;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  * Created by dxk on 2016/11/3.
  */
-public class User {
+public class User implements Serializable{
 
+    private static final long serialVersionUID = 7464615379240654769L;
     private Integer id;
     private String name;
-    private String createAt;
+    private Date createAt;
 
     public Integer getId() {
         return id;
@@ -25,11 +29,11 @@ public class User {
         this.name = name;
     }
 
-    public String getCreateAt() {
+    public Date getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(String createAt) {
+    public void setCreateAt(Date createAt) {
         this.createAt = createAt;
     }
 }

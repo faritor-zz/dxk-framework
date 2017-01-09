@@ -3,7 +3,15 @@
 
 <mapper namespace="com.demo.mapper.UserMapper">
 
-	<select id="getUserById" resultType="com.demo.model.User">
+	<select id="getUserList" resultType="com.demo.model.User">
+		SELECT
+		  t.id        AS id,
+		  t.name      AS name,
+		  t.create_at AS createAt
+		FROM users t
+	</select>
+
+	<select id="getUserById" parameterType="int" resultType="com.demo.model.User">
 		SELECT
 		  t.id        AS id,
 		  t.name      AS name,
@@ -11,5 +19,22 @@
 		FROM users t
 		WHERE t.id = #{id}
 	</select>
+
+	<insert id="saveUser" parameterType="map">
+		INSERT INTO users(name, create_at)
+		VALUES (#{user.name}, #{user.createAt})
+	</insert>
+
+	<update id="updateUser" parameterType="map">
+		UPDATE users
+		SET name = #{user.name},
+			create_at = #{user.createAt}
+		WHERE id = #{user.id}
+	</update>
+
+	<delete id="deleteUserById" parameterType="int">
+		DELETE FROM users
+		WHERE id = #{id}
+	</delete>
 	
 </mapper>
