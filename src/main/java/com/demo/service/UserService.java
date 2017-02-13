@@ -20,7 +20,7 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public List<User> getUserList(Integer pageNum, Integer pageSize){
+    public List<User> getUserList(Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         return userMapper.getUserList();
     }
