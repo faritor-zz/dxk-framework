@@ -8,30 +8,30 @@
                            http://www.springframework.org/schema/rabbit/spring-rabbit-1.4.xsd"
        default-lazy-init="true">
 
-    <!-- 发送相关 -->
-    <rabbit:template id="amqpTemplate" connection-factory="connectionFactory"
-                     exchange="${rabbit.demo.exchange}" routing-key="${rabbit.demo.routingKey}"/>
-
-    <!-- 监听相关 -->
-    <rabbit:listener-container connection-factory="connectionFactory">
-        <rabbit:listener queue-names="${rabbit.demo.queue}" ref="consumer" />
-    </rabbit:listener-container>
-
     <rabbit:connection-factory id="connectionFactory"
-                               virtual-host="${rabbit.vhost}"
+                               addresses="${rabbit.addresses}"
                                username="${rabbit.username}"
                                password="${rabbit.password}"/>
 
-    <rabbit:admin connection-factory="connectionFactory" />
+    <!-- 监听相关 -->
+    <rabbit:listener-container connection-factory="connectionFactory">
+        <rabbit:listener queue-names="${rabbit.demo.queue1}" ref="consumer1"/>
+        <rabbit:listener queue-names="${rabbit.demo.queue2}" ref="consumer2"/>
+    </rabbit:listener-container>
 
-    <rabbit:queue name="${rabbit.demo.queue}" />
-
+    <!-- 绑定exchange，topic模式 -->
     <rabbit:topic-exchange name="${rabbit.demo.exchange}">
         <rabbit:bindings>
-            <rabbit:binding queue="${rabbit.demo.queue}" pattern="${rabbit.demo.pattern}" />
+            <rabbit:binding queue="${rabbit.demo.queue1}" pattern="${rabbit.demo.pattern1}" />
+            <rabbit:binding queue="${rabbit.demo.queue2}" pattern="${rabbit.demo.pattern2}" />
         </rabbit:bindings>
     </rabbit:topic-exchange>
 
-    <bean id="consumer" class="com.demo.service.Consumer" />
+    <rabbit:admin connection-factory="connectionFactory" />
+    <rabbit:queue name="${rabbit.demo.queue1}" />
+    <rabbit:queue name="${rabbit.demo.queue2}" />
+
+    <bean id="consumer1" class="com.demo.event.Consumer1"/>
+    <bean id="consumer2" class="com.demo.event.Consumer2" />
 
 </beans>

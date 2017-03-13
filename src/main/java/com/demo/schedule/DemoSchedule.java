@@ -1,6 +1,6 @@
 package com.demo.schedule;
 
-import com.demo.service.UserService;
+import com.demo.service.CustomerService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,7 @@ public class DemoSchedule {
     private static final Logger logger = LoggerFactory.getLogger(DemoSchedule.class);
 
     @Autowired
-    private UserService userService;
+    private CustomerService customerService;
 
     @Scheduled(cron="0/10 * * * * ?")
     public void statusCheck() {

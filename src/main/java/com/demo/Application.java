@@ -1,5 +1,7 @@
 package com.demo;
 
+import com.alibaba.boot.dubbo.annotation.EnableDubboConfiguration;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -22,6 +24,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @ServletComponentScan
 //@EnableScheduling
 @EnableSwagger2
+@EnableDubboConfiguration
 @ImportResource("classpath*:spring-context.xml")
 public class Application extends SpringBootServletInitializer {
 

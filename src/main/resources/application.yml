@@ -1,34 +1,33 @@
 server:
-    port: 8080
+    port: 8081
     context-path: /dxk-framework/api
     sessionTimeout: 30
 
 spring:
     profiles:
         active: @{profile-id}
+    dubbo:
+        appname: dxk-framework
+        registry: localhost:2181
+        protocol: dubbo
+        port: 20880
 
 rabbit:
+  addresses: @{rabbit.addresses}
   username: @{rabbit.username}
   password: @{rabbit.password}
-  vhost: @{rabbit.vhost}
   demo.exchange: @{rabbit.demo.exchange}
-  demo.queue: @{rabbit.demo.queue}
-  demo.routingKey: @{rabbit.demo.routingKey}
-  demo.pattern: @{rabbit.demo.pattern}
+  demo.queue1: @{rabbit.demo.queue1}
+  demo.queue2: @{rabbit.demo.queue2}
+  demo.pattern1: @{rabbit.demo.pattern1}
+  demo.pattern2: @{rabbit.demo.pattern2}
 
 druid:
      url: @{druid.url}
      username: @{druid.username}
      password: @{druid.password}
-     filters: @{druid.filters}
-     initialSize: '10'
-     minIdle: '20'
-     maxActive: '50'
-     testWhileIdle: 'true'
-     connectionProperties: 'druid.stat.slowSqlMillis=1000'
 
 mybatis:
-    basePackage: com.demo.mapper
     mapperLocations: classpath*:/mapper/**/*.xml
     typeAliasesPackage: com.demo.model
-
+    configLocation: classpath:/mybatis/spring-mybatis.xml

@@ -1,9 +1,9 @@
 package com.demo.web.controller;
 
 import com.demo.web.constant.Urls;
-import com.demo.model.User;
-import com.demo.service.UserService;
+import com.demo.service.CustomerService;
 import com.demo.web.vo.UserVo;
+import com.dxk.customercenter.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,21 +22,21 @@ import io.swagger.annotations.ApiOperation;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private CustomerService customerService;
 
     @ApiOperation(value = "查询用户列表接口 xiaokang", notes = "获取用户列表信息")
     @GetMapping(Urls.User.GET_USER_LIST)
     @ResponseBody
     public List<User> getUserList(@RequestParam Integer pageNum,
                                   @RequestParam Integer pageSize) {
-        return userService.getUserList(pageNum, pageSize);
+        return customerService.getUserList(pageNum, pageSize);
     }
 
     @ApiOperation(value = "查询用户详情接口", notes = "根据用户id获取用户信息")
     @GetMapping(Urls.User.GET_USER)
     @ResponseBody
     public User getUserById(@PathVariable Integer id) {
-        return userService.getUserById(id);
+        return customerService.getUserById(id);
     }
 
     @ApiOperation(value = "保存用户接口", notes = "保存用户信息")
@@ -45,7 +45,7 @@ public class UserController {
         if (userVo == null) {
             return null;
         }
-        return userService.saveUser(userVo);
+        return customerService.saveUser(userVo);
     }
 
     @ApiOperation(value = "更新用户接口", notes = "更新用户信息")
@@ -54,13 +54,13 @@ public class UserController {
         if (userVo == null || userVo.getId() == null) {
             return null;
         }
-        return userService.updateUser(userVo);
+        return customerService.updateUser(userVo);
     }
 
     @ApiOperation(value = "删除用户接口", notes = "根据id删除用户")
     @DeleteMapping(Urls.User.DELETE_USER)
     public Integer deleteUserById(@PathVariable Integer id) {
-        return userService.deleteUserById(id);
+        return customerService.deleteUserById(id);
     }
 
 }

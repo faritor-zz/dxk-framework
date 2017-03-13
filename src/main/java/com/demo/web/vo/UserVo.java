@@ -1,7 +1,5 @@
 package com.demo.web.vo;
 
-import java.util.Date;
-
 /**
  * Created by dxk on 2016/12/2.
  */
@@ -9,7 +7,8 @@ public class UserVo {
 
     private Integer id;
     private String name;
-    private Date createAt;
+    private Integer age;
+    private String sex;
 
     public Integer getId() {
         return id;
@@ -27,11 +26,19 @@ public class UserVo {
         this.name = name;
     }
 
-    public Date getCreateAt() {
-        return createAt;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setCreateAt(Date createAt) {
-        this.createAt = createAt;
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 }

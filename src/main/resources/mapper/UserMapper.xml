@@ -3,6 +3,9 @@
 
 <mapper namespace="com.demo.mapper.UserMapper">
 
+	<!-- 开启Mybatis二级缓存-->
+	<!--<cache/>-->
+
 	<select id="getUserList" resultType="com.demo.model.User">
 		SELECT
 		  t.id        AS id,
